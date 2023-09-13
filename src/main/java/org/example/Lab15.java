@@ -16,12 +16,12 @@ public class Lab15 {
         int[] antalPriser = new int[3];
         String menu = """
                 Elpriser\s
-                 ========\s
-                 1. Inmatning\s
-                 2. Min, Max och medel\s
-                 3. Sortera\s
-                 4. Bästa laddningstid\s
-                 e. Avsluta""";
+                ========\s
+                1. Inmatning\s
+                2. Min, Max och medel\s
+                3. Sortera\s
+                4. Bästa laddningstid\s
+                e. Avsluta""";
         while(true) {
             System.out.println(menu);
             if (sc.hasNextInt()) {
