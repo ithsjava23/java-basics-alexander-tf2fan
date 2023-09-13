@@ -10,6 +10,8 @@ public class Lab15 {
         int menuChoice = 0;
 
         int[] antalPriser = new int[24];
+        String timme1;
+        String timme2;
         int minPrice = antalPriser[0];
         int maxPrice = antalPriser[0];
         int middlePrice = antalPriser[0];
@@ -29,9 +31,11 @@ public class Lab15 {
                 menuChoice = sc.nextInt();
                 switch (menuChoice) {
                     case (1):
-                        System.out.println("Skriv in priser för all 24 timmar i ören");
+                        System.out.println("Skriv in priserna för elen varje timme i ören");
                         for (int i = 0; i < antalPriser.length; i++) {
-                            System.out.println("Timme mellan " + i + "-" + (i + 1));
+                            timme1 = String.format("%02d",i);
+                            timme2 = String.format("%02d",(i+1));
+                            System.out.println(timme1+"-"+timme2);
                             antalPriser[i] = sc.nextInt();
                         }
                         continue;
@@ -46,7 +50,9 @@ public class Lab15 {
                             sum += antalPriser[i];
                         }
                         middlePrice = (sum / 24);
-                        System.out.println(middlePrice);
+                        System.out.println("Högsta pris = "+maxPrice);
+                        System.out.println("Lägsta pris = "+minPrice);
+                        System.out.println("Medel pris = "+middlePrice);
                         }
 
             } else if (sc.hasNextLine()) {
