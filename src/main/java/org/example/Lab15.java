@@ -9,11 +9,12 @@ public class Lab15 {
 
         int menuChoice = 0;
 
-        int minPrice;
-        int maxPrice;
-        int middlePrice;
+        int[] antalPriser = new int[24];
+        int minPrice = antalPriser[0];
+        int maxPrice = antalPriser[0];
+        int middlePrice = antalPriser[0];
+        int sum = 0;
         int bestChargeTime;
-        int[] antalPriser = new int[3];
         String menu = """
                 Elpriser\s
                 ========\s
@@ -22,21 +23,32 @@ public class Lab15 {
                 3. Sortera\s
                 4. Bästa laddningstid\s
                 e. Avsluta""";
-        while(true) {
+        while (true) {
             System.out.println(menu);
             if (sc.hasNextInt()) {
                 menuChoice = sc.nextInt();
                 switch (menuChoice) {
                     case (1):
                         System.out.println("Skriv in priser för all 24 timmar i ören");
-                        for(int i = 0;i < antalPriser.length;i++) {
-                            System.out.println("Timme mellan "+i+"-"+(i+1));
+                        for (int i = 0; i < antalPriser.length; i++) {
+                            System.out.println("Timme mellan " + i + "-" + (i + 1));
                             antalPriser[i] = sc.nextInt();
                         }
                         continue;
                     case (2):
+                        for(int i = 0;i < antalPriser.length;i++) {
+                            if (maxPrice < antalPriser[i]) {
+                                maxPrice = antalPriser[i];
+                            }
+                            if (minPrice > antalPriser[i]) {
+                                minPrice = antalPriser[i];
+                            }
+                            sum += antalPriser[i];
+                        }
+                        middlePrice = (sum / 24);
+                        System.out.println(middlePrice);
+                        }
 
-                }
             } else if (sc.hasNextLine()) {
                 char exit = sc.next().charAt(0);
                 switch (exit) {
@@ -51,5 +63,4 @@ public class Lab15 {
         }
 
     }
-    
 }
