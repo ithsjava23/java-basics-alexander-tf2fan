@@ -67,12 +67,10 @@ public class Lab15 {
 
                 }
             } else if (sc.hasNextLine()) {
-                char exit = sc.next().charAt(0);
+                String exit = sc.nextLine().toLowerCase();
                 switch (exit) {
-                    case 'e':
-                    case 'E':
-                        System.out.println(1);
-                        break;
+                    case "e":
+                        System.exit(0);
                     default:
                         System.out.println("Fel inmating");
                 }
