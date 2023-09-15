@@ -23,7 +23,7 @@ public class Lab15 {
                 Elpriser\s
                 ========\s
                 1. Inmatning\s
-                2. Min, Max och medel\s
+                2. Min, Max och Medel\s
                 3. Sortera\s
                 4. Bästa laddningstid (4h) \s
                 e. Avsluta""";
