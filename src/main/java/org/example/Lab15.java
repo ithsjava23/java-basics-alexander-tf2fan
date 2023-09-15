@@ -28,7 +28,6 @@ public class Lab15 {
                        "3. Sortera" + "\n" +
                        "4. Bästa laddningstid (4h)" + "\n" +
                        "e. Avsluta"+"\n";
-
         System.out.println("Hello there!");
         while (true) {
             System.out.print(menu);
@@ -70,7 +69,6 @@ public class Lab15 {
                         }
                     case (4):
                     Arrays.sort(antalPriser);
-                    ArrayUtils.reverse(antalPriser);
 
                 }
             } else if (sc.hasNextLine()) {
