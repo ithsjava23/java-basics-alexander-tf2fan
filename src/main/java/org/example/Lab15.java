@@ -1,5 +1,7 @@
 package org.example;
 
+import java.util.Arrays;
+import java.util.Collections;
 import java.util.Scanner;
 
 public class Lab15 {
@@ -20,12 +22,12 @@ public class Lab15 {
         int sum = 0;
         int bestChargeTime;
         String menu = "Elpriser" + "\n" +
-                "========" + "\n" +
-                "1. Inmatning" + "\n" +
-                "2. Min, Max och Medel" + "\n" +
-                "3. Sortera" + "\n" +
-                "4. Bästa laddningstid (4h)" + "\n" +
-                "e. Avsluta";
+                       "========" + "\n" +
+                       "1. Inmatning" + "\n" +
+                       "2. Min, Max och Medel" + "\n" +
+                       "3. Sortera" + "\n" +
+                       "4. Bästa laddningstid (4h)" + "\n" +
+                       "e. Avsluta"+"\n";
 
         System.out.println("Hello there!");
         while (true) {
@@ -67,6 +69,8 @@ public class Lab15 {
                             System.out.println(timma + " " + antalPriser[i]+ " öre");
                         }
                     case (4):
+                    Arrays.sort(antalPriser);
+                    ArrayUtils.reverse(antalPriser);
 
                 }
             } else if (sc.hasNextLine()) {
