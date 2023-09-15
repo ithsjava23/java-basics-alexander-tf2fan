@@ -25,8 +25,10 @@ public class Lab15 {
                 1. Inmatning\s
                 2. Min, Max och medel\s
                 3. Sortera\s
-                4. Bästa laddningstid\s
+                4. Bästa laddningstid (4h) \s
                 e. Avsluta""";
+
+        System.out.println("Hello there!");
         while (true) {
             System.out.println(menu);
             if (sc.hasNextInt()) {
