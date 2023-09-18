@@ -1,9 +1,104 @@
 package org.example;
 
+import org.apache.commons.lang3.ArrayUtils;
+import java.util.Arrays;
+import java.util.Comparator;
+import java.util.Scanner;
+
 public class App {
 
     public static void main(String[] args) {
-        System.out.println("Hello There!");
+
+        Scanner sc = new Scanner(System.in);
+
+        String menuChoice = "0";
+
+        int[] hours = new int[24];
+        for(int i = 0; i < hours.length;i++) {
+            hours[i] = i;
+        }
+
+        int[] antalPriser = new int[24];
+        String timme;
+        int timmeTid = 0;
+        int minPrice = antalPriser[0];
+        String minPriceTimme1 = "0";
+        int maxPrice = antalPriser[0];
+        String maxPriceTimme1 = "0";
+        String middlePrice = "0";
+        String timma = "0";
+        int sum = 0;
+        int bestChargeTime;
+        String menu = """
+                       Elpriser
+                       ========
+                       1. Inmatning
+                       2. Min, Max och Medel
+                       3. Sortera
+                       4. Bästa Laddningstid (4h)
+                       e. Avsluta
+                       """;
+        while (true) {
+            System.out.print(menu);
+                menuChoice = sc.nextLine();
+                switch (menuChoice) {
+                    case ("1"):
+                        System.out.print("Skriv in priserna för elen varje timme i ören"+"\n");
+                        for (int i = 0; i < antalPriser.length; i++) {
+                            // Sortera timmerna senare så det blir 01-02 som kan användas överallt.
+                            System.out.printf("%02d-%02d\n",i,i+1);
+                            antalPriser[i] = sc.nextInt();
+                        } sc.nextLine();
+                        continue;
+                    case ("2"):
+                        maxPrice = Integer.MIN_VALUE;
+                        minPrice = Integer.MAX_VALUE;
+                        for (int i = 0; i < antalPriser.length; i++) {
+                            if (maxPrice < antalPriser[i]) {
+                                maxPrice = antalPriser[i];
+                                maxPriceTimme1 = String.format("%02d-%02d", i, i + 1);
+
+                            }
+                            if (minPrice > antalPriser[i]) {
+                                minPrice = antalPriser[i];
+                                minPriceTimme1 = String.format("%02d-%02d", i, i + 1);
+
+                            }
+                            sum += antalPriser[i];
+                        }
+                        middlePrice = String.format("%.2f",(float) sum / 24);
+                        System.out.print("Lägsta pris: " + minPriceTimme1 + ", " + minPrice + " öre/kWh"+"\n");
+                        System.out.print("Högsta pris: " + maxPriceTimme1 + ", " + maxPrice + " öre/kWh"+"\n");
+                        System.out.print("Medelpris: " + middlePrice + " öre/kWh"+"\n");
+                        continue;
+                    case ("3"):
+                        for(int i = 0; i < antalPriser.length; i++) {
+                            for(int j = i + 1;j < antalPriser.length; j++) {
+                                if (antalPriser[i] < antalPriser[j]) {
+                                    int tempAntal = antalPriser[i];
+                                    antalPriser[i] = antalPriser[j];
+                                    antalPriser[j] = tempAntal;
+
+                                    int tempTimmar = hours[i];
+                                    hours[i] = hours[j];
+                                    hours[j] = tempTimmar;
+                                }
+                            }
+                        }
+                        for(int i = 0; i < antalPriser.length;i++) {
+                            System.out.print(String.format("%02d-%02d %d öre\n", hours[i],hours[i] + 1,antalPriser[i]));
+                        }
+
+                        continue;
+
+                    case ("4"):
+
+                    case "e","E" :
+                        return;
+
+                }
+            }
+
 
     }
 }
