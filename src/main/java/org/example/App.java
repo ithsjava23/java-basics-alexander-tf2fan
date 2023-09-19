@@ -92,7 +92,25 @@ public class App {
                         continue;
 
                     case ("4"):
+                        int tempTal = antalPriser[0] + antalPriser[1] +antalPriser[2] + antalPriser[3];
+                        int timma1 = 0;
+                        int timma2 = 1;
+                        int timma3 = 2;
+                        int timma4 = 3;
+                        float tempTalMedel = (float) tempTal / 4;
+                        for(int i = 0;i < 21;i++) {
+                            if(tempTal > antalPriser[i] + antalPriser[i+1] + antalPriser[i+2] + antalPriser[i+3]) {
+                                tempTal = antalPriser[i] + antalPriser[i+1] +antalPriser[i+2] + antalPriser[i+3];
+                                timma1 = i;
+                                timma2 = i + 1;
+                                timma3 = i + 2;
+                                timma4 = i + 3;
+                                tempTalMedel = (float) tempTal / 4;
+                            }
 
+                        }
+                        System.out.print(String.format("Påbörja laddning klockan %d\n",timma1));
+                        System.out.print(String.format("Medelpris 4h: %.1f öre/kWh\n",tempTalMedel));
                     case "e","E" :
                         return;
 
