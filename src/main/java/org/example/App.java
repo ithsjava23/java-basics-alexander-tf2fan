@@ -19,16 +19,12 @@ public class App {
         }
 
         int[] antalPriser = new int[24];
-        String timme;
-        int timmeTid = 0;
         int minPrice = antalPriser[0];
         String minPriceTimme1 = "0";
         int maxPrice = antalPriser[0];
         String maxPriceTimme1 = "0";
         String middlePrice = "0";
         String timma = "0";
-        int sum = 0;
-        int bestChargeTime;
         String menu = """
                        Elpriser
                        ========
@@ -51,6 +47,7 @@ public class App {
                         } sc.nextLine();
                         continue;
                     case ("2"):
+                        int sum = 0;
                         maxPrice = Integer.MIN_VALUE;
                         minPrice = Integer.MAX_VALUE;
                         for (int i = 0; i < antalPriser.length; i++) {
@@ -94,23 +91,18 @@ public class App {
                     case ("4"):
                         int tempTal = antalPriser[0] + antalPriser[1] +antalPriser[2] + antalPriser[3];
                         int timma1 = 0;
-                        int timma2 = 1;
-                        int timma3 = 2;
-                        int timma4 = 3;
                         float tempTalMedel = (float) tempTal / 4;
                         for(int i = 0;i < 21;i++) {
                             if(tempTal > antalPriser[i] + antalPriser[i+1] + antalPriser[i+2] + antalPriser[i+3]) {
                                 tempTal = antalPriser[i] + antalPriser[i+1] +antalPriser[i+2] + antalPriser[i+3];
                                 timma1 = i;
-                                timma2 = i + 1;
-                                timma3 = i + 2;
-                                timma4 = i + 3;
                                 tempTalMedel = (float) tempTal / 4;
                             }
 
                         }
                         System.out.print(String.format("Påbörja laddning klockan %d\n",timma1));
                         System.out.print(String.format("Medelpris 4h: %.1f öre/kWh\n",tempTalMedel));
+                        continue;
                     case "e","E" :
                         return;
 
