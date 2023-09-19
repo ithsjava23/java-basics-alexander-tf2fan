@@ -2,9 +2,6 @@
 
 package org.example;
 
-import org.apache.commons.lang3.ArrayUtils;
-import java.util.Arrays;
-import java.util.Comparator;
 import java.util.Locale;
 import java.util.Scanner;
 
