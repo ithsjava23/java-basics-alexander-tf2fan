@@ -69,6 +69,8 @@ public class App {
                         System.out.print("Medelpris: " + middlePrice + " öre/kWh"+"\n");
                         continue;
                     case ("3"):
+                    // antalPriser[0] = 20; [1] = 30; [2] = 10; [3] = 10; [23] = 40;
+
                         for(int i = 0; i < antalPriser.length; i++) {
                             for(int j = i + 1;j < antalPriser.length; j++) {
                                 if (antalPriser[i] < antalPriser[j]) {
@@ -83,9 +85,15 @@ public class App {
                             }
                         }
                         for(int i = 0; i < antalPriser.length;i++) {
-                            System.out.print(String.format("%02d-%02d %d öre\n", hours[i],hours[i] + 1,antalPriser[i]));
+                            if (i == 3) {
+                                System.out.print(String.format("%02d-%02d %d öre\n", hours[23], hours[23] + 1, antalPriser[23]));
+                            } else if (i == 23) {
+                                continue;
+                            }
+                            System.out.print(String.format("%02d-%02d %d öre\n", hours[i], hours[i] + 1, antalPriser[i]));
+                            // 1st = 23-24 40 öre 24st = 02-03 10 öre;
+                            // 1st = hours[0] = 23; 24st hours[
                         }
-
                         continue;
 
                     case ("4"):
